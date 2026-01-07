@@ -8,6 +8,7 @@ from collections import OrderedDict
 import yaml
 import math
 from model.SUNet import SUNet_model
+import cv2
 
 class SUNetDenoiser:
     def __init__(self, model_weights, config_path='training.yaml', patch_size=256, stride=256, batch_size=8):
