@@ -10,9 +10,10 @@ import math
 
 class SUNetDenoiser:
     def __init__(self, model_weights, config_path='training.yaml', patch_size=256, stride=256, batch_size=8):
-        """Initialize denoiser once and reuse it"""
-        with open(config_path, 'r') as f:
-            opt = yaml.safe_load(f)
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        config_path = os.path.join(BASE_DIR, "training.yaml")
+        with open(config_path, "r") as f:
+            return yaml.safe_load(f)
         
         from model.SUNet import SUNet_model
         self.model = SUNet_model(opt).cuda()
