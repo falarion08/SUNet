@@ -13,9 +13,8 @@ class SUNetDenoiser:
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         config_path = os.path.join(BASE_DIR, "training.yaml")
         with open(config_path, "r") as f:
-            return yaml.safe_load(f)
+            opt =  yaml.safe_load(f)
         
-        from model.SUNet import SUNet_model
         self.model = SUNet_model(opt).cuda()
         self.load_checkpoint(model_weights)
         self.model.eval()
